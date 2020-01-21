@@ -37,10 +37,13 @@ def single_one_1(ls):
 def reverse_string_by_words(strng):
     return ' '.join(strng.split()[::-1])
 
+#def find_major_element(array):
+    #unique_el = list(set(array))
+    #temp = [x for x in Counter(array).values()]
+    #return unique_el[temp.index(max(temp))]
+
 def find_major_element(array):
-    unique_el = list(set(array))
-    temp = [x for x in Counter(array).values()]
-    return unique_el[temp.index(max(temp))]
+    return sorted(Counter(array).items(), key=lambda x: x[1])[-1][0]
 
 def len_of_last(strng):
     return len(strng.split()[-1])
@@ -61,7 +64,8 @@ class Stack():
 
     def getMin(self):
         return min(self.stack)
-    
+
+
 
 
 
@@ -74,10 +78,4 @@ if __name__ == '__main__':
     #print(len_of_last("Hello World"))
     #print(single_one_1([1, 1, 2, 2, 3]))
     #print(reverse_string_by_words("asd asd dsa sad"))
-    #print(find_major_element([1,1,2,3,2,2,2,1,2,3]))
-    s = Stack()
-    s.push(5)
-    print(s.top())
-    s.pop()
-    s.push(1)
-    print(s.getMin())
+    print(find_major_element([1,1,2,3,2,2,2,1,2,3]))
