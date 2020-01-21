@@ -42,13 +42,42 @@ def find_major_element(array):
     temp = [x for x in Counter(array).values()]
     return unique_el[temp.index(max(temp))]
 
+def len_of_last(strng):
+    return len(strng.split()[-1])
+
+class Stack():
+    
+    def __init__(self):
+        self.stack = []
+    
+    def push(self, el):
+        self.stack.append(el)
+    
+    def pop(self):
+        self.stack.pop()
+    
+    def top(self):
+        return self.stack[-1]
+
+    def getMin(self):
+        return min(self.stack)
+    
+
+
 
 
 if __name__ == '__main__':
     #print(find_median([1, 3, 4, 7], [2, 5, 6, 8]))
     #print(ispalindrome_int(121))
     #print(first_occurance("aoaoa", "ao"))
-    print(increment_last(['1', '2', '3', '4']))
+    #print(increment_last(['1', '2', '3', '4']))
+    #print(len_of_last("Hello World"))
     #print(single_one_1([1, 1, 2, 2, 3]))
     #print(reverse_string_by_words("asd asd dsa sad"))
     #print(find_major_element([1,1,2,3,2,2,2,1,2,3]))
+    s = Stack()
+    s.push(5)
+    print(s.top())
+    s.pop()
+    s.push(1)
+    print(s.getMin())
