@@ -41,13 +41,13 @@ class Matrix():
         return [x[col] for x in self.matrix]
 
     def get_main_diagonal(self):
-        if self.is_square(self):
+        if self.is_square():
             return [self.matrix[i][i] for i in range(self.n)]
         else:
             raise ValueError('Only square matrix have diagonal')
 
     def is_diagonal(self):
-        if not all(self.get_main_diagonal(self)):
+        if not all(self.get_main_diagonal()):
             return False
         for i in range(self.n):
             for j in range(self.m):
@@ -106,7 +106,7 @@ class Matrix():
 if __name__ == '__main__':
     m = Matrix(3, 3)
     k = Matrix(3, 3)
-    print(k.fill(manually=True))
+    print(k.fill(randomize=True))
     print(m.fill(randomize=True))
     # print(m.get_main_diagonal())
     # print(m.is_diagonal([1, 5, 9]))
@@ -116,4 +116,5 @@ if __name__ == '__main__':
     # print(k + m)
     # print(m.transpose())
     # print(k - m)
-    print(k.is_diagonal())
+    # print(k.is_diagonal())
+    
