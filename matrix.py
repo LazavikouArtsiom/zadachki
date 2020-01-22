@@ -8,11 +8,11 @@ class Matrix():
         self.matrix = [[0] * m for _ in range(n)]
 
     def __info__(self):
-            return self.matrix
-        
+        return self.matrix
+
     def __str__(self):
         return f'Size : [{self.n};{self.m}]. Matrix : {self.matrix}'
-               
+
     def fill(self, randomize=False, manually=False):
         if randomize:
             for i in range(self.n):
@@ -33,7 +33,6 @@ class Matrix():
             return self.matrix
         except IndexError:
             print("Sry i only know how to transpose square matrix")
-            
 
     def get_row(self, row):
         return self.matrix[row]
@@ -55,8 +54,6 @@ class Matrix():
                 if not self.matrix[i][j] == 0 and self.matrix[i][j] is not self.matrix[i][i]:
                     return False
         return True
-                
-
 
     def is_square(self):
         return self.n == self.m
@@ -72,7 +69,6 @@ class Matrix():
                     return False
         return True
 
-
     def __add__(self, other_matrix):
         if not isinstance(other_matrix, Matrix):
             raise ValueError("The operand must be Matrix class instance")
@@ -82,9 +78,7 @@ class Matrix():
             for j in range(self.m):
                 self.matrix[i][j] += other_matrix.matrix[i][j]
         return self.matrix
-                
 
-             
     def __sub__(self, other_matrix):
         if not isinstance(other_matrix, Matrix):
             raise ValueError("The operand must be Matrix class instance")
@@ -95,10 +89,8 @@ class Matrix():
                 self.matrix[i][j] -= other_matrix.matrix[i][j]
         return self.matrix
 
-
-
     def __mul__(self, item):
-        if isinstance(item, int):    
+        if isinstance(item, int):
             for i in range(self.n):
                 for j in range(self.m):
                     self.matrix[i][j] *= item
@@ -112,7 +104,6 @@ class Matrix():
 
 
 if __name__ == '__main__':
-
     m = Matrix(3, 3)
     k = Matrix(3, 3)
     print(k.fill(manually=True))
@@ -120,10 +111,9 @@ if __name__ == '__main__':
     # print(m.get_main_diagonal())
     # print(m.is_diagonal([1, 5, 9]))
     # print(m.shape())
-    #print(m * k)
-    #print(m.is_zero())
-    #print(k + m)
-    #print(m.transpose())
-    #print(k - m)
+    # print(m * k)
+    # print(m.is_zero())
+    # print(k + m)
+    # print(m.transpose())
+    # print(k - m)
     print(k.is_diagonal())
-
