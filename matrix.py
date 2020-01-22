@@ -42,13 +42,13 @@ class Matrix():
         return [x[col] for x in self.matrix]
 
     def get_main_diagonal(self):
-        if Matrix.is_square(self):
+        if self.is_square(self):
             return [self.matrix[i][i] for i in range(self.n)]
         else:
             raise ValueError('Only square matrix have diagonal')
 
     def is_diagonal(self):
-        if not all(Matrix.get_main_diagonal(self)):
+        if not all(self.get_main_diagonal(self)):
             return False
         for i in range(self.n):
             for j in range(self.m):
